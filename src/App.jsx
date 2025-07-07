@@ -31,6 +31,14 @@ export default function App() {
 
   }
 
+   const diceFaces = dices.map(numObj => 
+    <Die 
+      key={numObj.id} 
+      value={numObj.value} 
+      isHeld={numObj.isHeld}
+      holdDice={() => holdDice(numObj.id)}
+    />
+  )
 
   return (
     <div className="wrapperProject">
