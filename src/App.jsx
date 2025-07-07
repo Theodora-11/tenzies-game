@@ -40,6 +40,22 @@ export default function App() {
     />
   )
 
+  function rollDices() {
+
+    if(!gameWon) {
+      setDices(prevDices=> (
+        prevDices.map(dice => (
+          dice.isHeld ? dice : {...dice, value: Math.ceil(Math.random() * 6)}
+        ))
+      ))
+
+    } else {
+      setDices(generateAllNewDice());
+    }
+
+  }
+
+
   return (
     <div className="wrapperProject">
       <h1 className="title">Tenzies</h1>
