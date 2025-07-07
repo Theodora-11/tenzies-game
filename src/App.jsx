@@ -52,7 +52,15 @@ export default function App() {
     } else {
       setDices(generateAllNewDice());
     }
+  }
 
+
+  function holdDice(id) {
+    setDices(prevDices => (
+      prevDices.map(dice => (
+        dice.id === id? {...dice, isHeld: !dice.isHeld} : dice
+      ))
+    ))
   }
 
 
