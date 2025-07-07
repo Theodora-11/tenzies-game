@@ -20,7 +20,17 @@ export default function App() {
     if(gameWon) {buttonRef.current.focus()}
   }, [gameWon])
   
-  
+  function generateAllNewDice() {
+    return new Array(10)
+    .fill(1)
+    .map(() => ({
+      value: Math.ceil(Math.random() * 6),
+      isHeld: false,
+      id: nanoid(),
+    }))
+
+  }
+
 
   return (
     <div className="wrapperProject">
